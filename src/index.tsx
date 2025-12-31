@@ -1,20 +1,17 @@
-import { h } from 'preact';
-import renderToString from 'preact-render-to-string';
+import { useId } from "preact/compat";
+import renderToString from "preact-render-to-string/jsx";
 
-interface GreetingProps {
-  name: string;
-}
-
-function Greeting({ name }: GreetingProps) {
-  return <div>Hello, {name}!</div>;
+function Foo() {
+  const id = useId();
+  return <div id={id} />;
 }
 
 const App = () => {
   return (
-    <div>
-      <h1>Preact App</h1>
-      <Greeting name="World" />
-    </div>
+    <>
+      <Foo />
+      <Foo />
+    </>
   );
 };
 
